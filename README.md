@@ -4,7 +4,7 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 
 NGX N Logger is a simple logging module for angular (v6 and above). It allows "pretty print" to the console, as well as make debugging easier with more readable and full configurable fancy logs.
 
-<img src="https://github.com/nasraldin/ngx-n-logger/blob/master/img/ngx-n-logger.png">
+<img src="https://raw.githubusercontent.com/nasraldin/ngx-n-logger/master/img/ngx-n-logger.png">
 
 # Key Features:
 
