@@ -1,0 +1,34 @@
+{
+  "name": "ngx-n-logger",
+  "version": "0.0.1",
+  "description": "ngx-n-logger is part of n-console",
+  "author": {
+    "name": "Nasr Aldin",
+    "email": "nasr2ldin@gmail.com",
+    "website": "http://nasraldin.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nasraldin/ngx-n-logger"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nasraldin/ngx-n-logger/issues"
+  },
+  "homepage": "https://github.com/nasraldin/ngx-n-logger#readme",
+  "keywords": [
+    "angular",
+    "logging",
+    "logger",
+    "log",
+    "angular log",
+    "angular console"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^10.0.5",
+    "@angular/core": "^10.0.5"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}
