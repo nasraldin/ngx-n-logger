@@ -79,7 +79,7 @@ export class YourComponent {
     auther: {
       email: 'nasr2ldin@gmail.com',
       website: 'http://nasraldin.com',
-      twitter: 'https://twitter.com/nasraldin',
+      twitter: 'https://twitter.com/_nasraldin',
     },
     git: 'https://github.com/nasraldin/ngx-n-logger',
     npm: 'https://www.npmjs.com/package/ngx-n-logger',
