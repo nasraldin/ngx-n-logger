@@ -6,13 +6,14 @@ export class LoggerConfig {
   isProduction?: boolean;
   environment?: string;
   logLevel ? = LoggerLevel.All;
+  enableInterceptorLogging ? = false;
   showStyles ? = true;
   showTime ? = true;
   showEmoji ? = true;
   showLabel ? = true;
   disableLogs ? = false;
   fontSize?: number;
-  textColor?: {
+  labelColor?: {
     [logLevel: number]: string;
   } = {};
   bgColor?: {
@@ -24,12 +25,12 @@ export class LoggerConfig {
 }
 
 export const DefaultColors = {
-  [LoggerLevel.Trace]: '#000000',
+  [LoggerLevel.Trace]: '#fff',
   [LoggerLevel.Debug]: '#000000',
   [LoggerLevel.Info]: '#000000',
-  [LoggerLevel.Warn]: '#000000',
-  [LoggerLevel.Error]: '#000000',
-  [LoggerLevel.Fatal]: '#000000',
+  [LoggerLevel.Warn]: '#fff',
+  [LoggerLevel.Error]: '#fff',
+  [LoggerLevel.Fatal]: '#fff',
 };
 
 export const DefaultLableColors = {
@@ -42,7 +43,7 @@ export const DefaultLableColors = {
 };
 
 export const DefaultBGColors = {
-  [LoggerLevel.Trace]: '#000080',
+  [LoggerLevel.Trace]: '#e42c64',
   [LoggerLevel.Debug]: '#00BFFE',
   [LoggerLevel.Info]: '#1ee3cf',
   [LoggerLevel.Warn]: '#FF6419',

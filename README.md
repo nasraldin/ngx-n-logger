@@ -6,6 +6,11 @@ NGX N Logger is a simple logging module for angular (v6 and above). It allows "p
 
 <img src="https://raw.githubusercontent.com/nasraldin/ngx-n-logger/master/img/ngx-n-logger.png">
 
+- Interceptor Logging
+<img src="https://raw.githubusercontent.com/nasraldin/ngx-n-logger/master/img/interceptor1.jpg">
+
+<img src="https://raw.githubusercontent.com/nasraldin/ngx-n-logger/master/img/interceptor2.jpg">
+
 # Key Features:
 
 - 📌 Log Levels Labels (All, Debug, Info, Warn, Error, Fatal, Off)
@@ -16,6 +21,7 @@ NGX N Logger is a simple logging module for angular (v6 and above). It allows "p
 - 📌 Debug RxJS Observable Stream using debugOperator() operator function
 - 📌 Can configure each setting
 - 📌 Environment Specific Log Level Restriction. eg. if you set logLevel to LogLevel.WARNING, it will only show logs for WARNING and ERROR
+- 📌 Interceptor Logging
 - 📌 .....
 
 ## Options will support in next release
@@ -48,11 +54,13 @@ The only remaining part is to list the imported module in your application modul
     ...,
     NgxNLoggerModule,
     // NgxNLoggerModule.forRoot({
+    //   enableInterceptorLogging: true,  
     //   isProduction: false,
     //   applicationName: 'Ngx N Logger',
     //   showStyles: false,
     //   showLabel: true,
     //   showTime: true,
+    // textColor: { [LoggerLevel.Debug]: 'red', [LoggerLevel.Info]: '#fff' },
     // }),
     ]
   bootstrap: [AppComponent]

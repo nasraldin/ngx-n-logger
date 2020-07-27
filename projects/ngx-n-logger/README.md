@@ -2,23 +2,109 @@
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
-## Code scaffolding
+NGX N Logger is a simple logging module for angular (v6 and above). It allows "pretty print" to the console, as well as make debugging easier with more readable and full configurable fancy logs.
 
-Run `ng generate component component-name --project ngx-n-logger` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-n-logger`.
-> Note: Don't forget to add `--project ngx-n-logger` or else it will be added to the default project in your `angular.json` file. 
+<img src="https://raw.githubusercontent.com/nasraldin/ngx-n-logger/master/img/ngx-n-logger.png">
 
-## Build
+- Interceptor Logging
 
-Run `ng build ngx-n-logger` to build the project. The build artifacts will be stored in the `dist/` directory.
+<img src="https://raw.githubusercontent.com/nasraldin/ngx-n-logger/master/img/interceptor1.jpg">
 
-## Publishing
+<img src="https://raw.githubusercontent.com/nasraldin/ngx-n-logger/master/img/interceptor2.jpg">
 
-After building your library with `ng build ngx-n-logger`, go to the dist folder `cd dist/ngx-n-logger` and run `npm publish`.
+# Key Features:
 
-## Running unit tests
+- 📌 Log Levels Labels (All, Debug, Info, Warn, Error, Fatal, Off)
+- 📌 Config isProduction, Can Disable all Logs
+- 📌 Show/Hide Styles, Log Time, Labels, Emoji 😎 for each log level,
+- 📌 Log Level colors and emojis are configurable
+- 📌 Show Header on console configurable
+- 📌 Debug RxJS Observable Stream using debugOperator() operator function
+- 📌 Can configure each setting
+- 📌 Environment Specific Log Level Restriction. eg. if you set logLevel to LogLevel.WARNING, it will only show logs for WARNING and ERROR
+- 📌 Interceptor Logging
+- 📌 .....
 
-Run `ng test ngx-n-logger` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Options will support in next release
 
-## Further help
+- 📌 log writers to Endpoint, Loggly, Logstash, LocalStorage, Files
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Dependencies
+
+- @angular/common
+- @angular/core
+
+## Installation
+
+```shell
+npm install --save ngx-n-logger
+```
+
+Once installed you need to import our main module:
+
+```typescript
+import { NgxNLoggerModule } from 'ngx-n-logger';
+```
+
+The only remaining part is to list the imported module in your application module, passing in a config to intialize the logger.
+
+```typescript
+@NgModule({
+  ...,
+  imports: [
+    ...,
+    NgxNLoggerModule,
+    // NgxNLoggerModule.forRoot({
+    //   enableInterceptorLogging: true,  
+    //   isProduction: false,
+    //   applicationName: 'Ngx N Logger',
+    //   showStyles: false,
+    //   showLabel: true,
+    //   showTime: true,
+    // textColor: { [LoggerLevel.Debug]: 'red', [LoggerLevel.Info]: '#fff' },
+    // }),
+    ]
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+```
+
+## Usage
+
+To use the Logger, you will need import it locally, then call one of the logging functions
+
+```typescript
+import { Component } from '@angular/core';
+import { NgxNLoggerService } from 'ngx-n-logger';
+
+@Component({
+  selector: 'your-component',
+  templateUrl: './your.component.html',
+  styleUrls: ['your.component.scss'],
+})
+export class YourComponent {
+  info = {
+    auther: {
+      email: 'nasr2ldin@gmail.com',
+      website: 'http://nasraldin.com',
+      twitter: 'https://twitter.com/_nasraldin',
+    },
+    git: 'https://github.com/nasraldin/ngx-n-logger',
+    npm: 'https://www.npmjs.com/package/ngx-n-logger',
+  };
+
+  constructor(private logger: NgxNLoggerService) {
+    logger.clear();
+    logger.header('ngx-n-logger is running! - faster logging 😎');
+    logger.log(this.info);
+    logger.debug('log debug', this.info);
+    logger.info('log info', this.info);
+    logger.warn('log warn', this.info);
+    logger.error('log error', this.info);
+    logger.fatal('log fatal', this.info);
+    logger.trace('log trace', this.info);
+    logger.table('log trace', this.info);
+  }
+}
+```

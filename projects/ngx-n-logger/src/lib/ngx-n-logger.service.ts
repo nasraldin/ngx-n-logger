@@ -59,13 +59,13 @@ export class NgxNLoggerService {
   }
 
   private getStyles = (level: LoggerLevel) =>
-    `font-size: ${this.config.fontSize || 13}px; color:${
-      DefaultColors[level]
-    }; background-color:${
-      this.config.bgColor[level] || DefaultBGColors[level]
-    }; padding: 0px 2px; border-radius: 2px`;
+    `font-size: ${this.config.fontSize || 13}px;
+    color: ${this.config.labelColor[level] || DefaultColors[level]};
+    background-color: ${this.config.bgColor[level] || DefaultBGColors[level]};
+    padding: 0px 2px; border-radius: 2px`
 
-  private labelColors = (level: LoggerLevel) => `color:${DefaultLableColors[level]};`;
+  private labelColors = (level: LoggerLevel) =>
+    `color: ${this.config.labelColor[level] || DefaultLableColors[level]};`
 
   private logger(level: LoggerLevel, ...args: any[]): void {
     if (this.config.isProduction) {
@@ -165,5 +165,8 @@ export class NgxNLoggerService {
   debugOperator = <T>(
     message?: string,
     logLevel = LoggerLevel.Debug,
-  ): MonoTypeOperatorFunction<T> => tap((data) => { this.logger(logLevel, message || '', data); })
+  ): MonoTypeOperatorFunction<T> =>
+    tap((data) => {
+      this.logger(logLevel, message || '', data);
+    })
 }
