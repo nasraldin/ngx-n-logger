@@ -60,7 +60,7 @@ The only remaining part is to list the imported module in your application modul
     //   showStyles: false,
     //   showLabel: true,
     //   showTime: true,
-    // textColor: { [LoggerLevel.Debug]: 'red', [LoggerLevel.Info]: '#fff' },
+    //   labelColor: { [LoggerLevel.Debug]: 'red', [LoggerLevel.Info]: '#fff' },
     // }),
     ]
   bootstrap: [AppComponent]
